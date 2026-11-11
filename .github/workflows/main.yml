@@ -16,14 +16,13 @@ jobs:
 
     steps:
     # Check out repository under $GITHUB_WORKSPACE, so the job can access it
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
 
     # Run using Python 3.8 for consistency and aiohttp
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v4
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v6
       with:
-        python-version: '3.8'
-        architecture: 'x64'
+        python-version: '3.12'
         cache: 'pip'
 
     # Install dependencies with `pip`
@@ -47,8 +46,8 @@ jobs:
     # Commit all changed files to the repository
     - name: Commit to the repo
       run: |
-        git config --global user.name "jstrieb/github-stats"
-        git config --global user.email "github-stats[bot]@jstrieb.github.io"
+        git config --global user.name "nikunjmathur08"
+        git config --global user.email "nikunjmathur0810@gmail.com"
         git add .
         # Force the build to succeed, even if no files were changed
         git commit -m 'Update generated files' || true
